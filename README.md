@@ -67,7 +67,7 @@ js/
 css/
    --style.css
 inc/
-   --inc.dbconfig.php
+   --inc.config.php
    --inc.class.crud.php  
    --inc.footer.php
    --inc.header.php
