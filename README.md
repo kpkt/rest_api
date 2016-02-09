@@ -71,7 +71,6 @@ inc/
    --inc.class.crud.php  
    --inc.footer.php
    --inc.header.php
-
 index.php
 add.php
 edit.php

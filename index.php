@@ -30,7 +30,6 @@ include_once 'inc/inc.header.php';
 <div class="row mzm">    
     <div class="btn-group pull-right" role="group" aria-label="...">
         <a class="btn btn-info" href="add.php">Add Data</a>
-        <a class="btn btn-primary add-ajax" href="#">Add Ajax</a>    
     </div>
     <table id="index_users" class="table table-striped table-bordered table-highlight table-hover">
         <thead>
@@ -40,7 +39,6 @@ include_once 'inc/inc.header.php';
                 <th>Phone</th>
                 <th>Email ID</th>
                 <th>Action</th>
-                <th>AJAX</th>
             </tr>
         </thead>
         <tbody>
@@ -62,7 +60,6 @@ include_once 'inc/inc.header.php';
                         <a class="btn btn-warning btn-sm" href="view.php?view_id=<?php print($user['id']); ?>">View</a>                        
                         <a class="btn btn-danger btn-sm" href="delete.php?delete_id=<?php print($user['id']); ?>" onClick="return confirm('are you sure you want to delete?');">Delete</a>                        
                     </td>
-                    <td><a class="btn btn-primary btn-sm edit-ajax" id="edit-<?php print($user['id']); ?>">Edit Ajax</a></td>
                 </tr>
             <?php endforeach; ?>
 
