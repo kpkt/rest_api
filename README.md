@@ -52,30 +52,13 @@ INSERT INTO `users` VALUES (4, 'Mohd Salleh Daim','salled.daim@gmail.com','01434
 Direktori fail projek seperti dibawah 
 
 ```php
-bootstrap/
-   --css/
-      --bootstrap.min.css
-   --js/
-       --bootstrap.min.js
-   --fonts/
-       --glyphicons-halflings-regular.eot
-       --glyphicons-halflings-regular.svg
-       --glyphicons-halflings-regular.ttf
-       --glyphicons-halflings-regular.woff
-js/
-   --jquery.min.js
-css/
-   --style.css
 inc/
    --inc.config.php
-   --inc.class.crud.php  
-   --inc.footer.php
-   --inc.header.php
-index.php
-add.php
-edit.php
-view.php
-
+   --inc.class.api.php   
+api/
+   --api_add.php
+   --api_edit.php
+   --api_get.php
 
 ```
 
@@ -98,19 +81,18 @@ $dbName = "db_php_sample";
 
 # CRUD Class
 
-Fail inc.class.crud.php menempatkan fungsi asas CRUD dan fungsi memanggil semua data dan data terpilih.
+Fail inc.class.api.php menempatkan fungsi asas CRUD dan fungsi memanggil semua data dan data terpilih.
 
 ```php
 
-function get_all_data($query)
+function api_get_all_data($query)
 
-function create($param1, $param2, $param3, $paramN)
+function api_get_data($id)
 
-function read($id)
+function api_create($param1, $param2, $param3, $paramN)
 
-function update($id, $param1, $param2, $param3, $paramN)
+function api_update($id, $param1, $param2, $param3, $paramN)
 
-function delete($id)
 
 ```
 
