@@ -1,8 +1,7 @@
 /* 
- * @tutorial Sesi "Transfer of technology"
- * Penggunaan AppGen - API Manager dan 
- * pembangunan API Service dengan mengggunakan
- * PHP dan MySQL
+ * PHP PDO CRUD Tutorial 
+ * In this tutorial we will see that how to create database 
+ * CRUD operations using Object Oriented concept in PDO
  * @author 	: Mohamad Zaki Mustafa
  * @contact 	: mzm@kpkt.gov.my
  * @date	: 17hb Februari 2015
@@ -15,7 +14,8 @@
  * Define URL
  * @type String
  */
-var url = 'http://localhost/php_pdo_api/';
+var url = 'http://localhost/php_pdo_api/api/';
+//var url = 'http://localhost/php_pdo_ajax/ajax/';
 
 /**
  * Append Modal to body
@@ -37,7 +37,7 @@ $('body').append(viewModal);
  * @param {type} param
  */
 $('.add-ajax').click(function () {
-    $('.modal-body').load('add_form.php', function (result) {
+    $('.modal-body').load('ajax/modal_add.php', function (result) {
         $('#formModal').modal({show: true});
         $('#formModal').on('shown.bs.modal', function () {
             data_save();
@@ -50,13 +50,17 @@ $('.add-ajax').click(function () {
  * Update AJAX
  * @param {type} param
  */
-$('.edit-ajax').click(function () {
-    $('.modal-body').load('edit_form.php', function (result) {
+$('.edit-ajax').on('click', function () {
+    //Get id of data when click 
+    //exp : user-13
+    //slip "-" : [0] => user, [1] => 13, 
+    var user_id = $(this).closest('tr').attr('id').split("-")[1];
+
+    $('.modal-body').load('ajax/modal_edit.php', function (result) {
         $('#formModal').modal({show: true});
         $('#formModal').on('shown.bs.modal', function () {
 
             //Get id of data row
-            var user_id = $('.edit-ajax').attr("id").split("-")[1];
             data_get(user_id);
             data_update();
 
@@ -77,7 +81,8 @@ function data_save() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: url + "api/api_add.php",
+            url: url + "api_add.php",
+//            url: url + "ajax_add.php",
             data: data,
             success: function (res) {
                 if (res['status'] == 'berjaya') {
@@ -88,9 +93,11 @@ function data_save() {
                     html += '<td>' + res['data']['email'] + '</td>';
                     html += '<td>' + res['data']['phone'] + '</td>';
                     html += '<td>';
-                    html += '<a href="edit.php?edit_id=' + res['data']['id'] + '" class="btn btn-info btn-sm">Edit Form</a>';
-                    html += '<a id="edit-' + res['data']['id'] + '" class="btn btn-primary btn-sm">Edit Ajax</a>';
+                    html += '    <a class="btn btn-info btn-sm" href="edit.php?edit_id=' + res['data']['id'] + '">Edit</a>';
+                    html += '    <a class="btn btn-warning btn-sm" href="view.php?view_id=' + res['data']['id'] + '">View</a>';
+                    html += '    <a class="btn btn-danger btn-sm" href="delete.php?delete_id=' + res['data']['id'] + '" onClick="return confirm(\'are you sure you want to delete?\');">Delete</a>';
                     html += '</td>';
+                    html += '<td><a class="btn btn-primary btn-sm edit-ajax" id="edit-' + res['data']['id'] + '">Edit Ajax</a></td>';
                     html += '</tr>';
                     $('#index_users tbody').append(html);
                 }
@@ -103,7 +110,8 @@ function data_get(id) {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: url + "api/api_get.php",
+        url: url + "api_get.php",
+//        url: url + "ajax_get.php",
         data: {"user_id": id},
         success: function (res) {
             if (res['status'] == 'berjaya') {
@@ -129,7 +137,8 @@ function data_update() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: url + "api/api_edit.php",
+            url: url + "api_edit.php",
+//            url: url + "ajax_edit.php",
             data: data,
             success: function (res) {
                 if (res['status'] == 'berjaya') {
@@ -140,9 +149,11 @@ function data_update() {
                     html += '<td>' + res['data']['email'] + '</td>';
                     html += '<td>' + res['data']['phone'] + '</td>';
                     html += '<td>';
-                    html += '<a href="edit.php?edit_id=' + res['data']['id'] + '" class="btn btn-info btn-sm">Edit Form</a>';
-                    html += '<a id="edit-' + res['data']['id'] + '" class="btn btn-primary btn-sm">Edit Ajax</a>';
+                    html += '    <a class="btn btn-info btn-sm" href="edit.php?edit_id=' + res['data']['id'] + '">Edit</a>';
+                    html += '    <a class="btn btn-warning btn-sm" href="view.php?view_id=' + res['data']['id'] + '">View</a>';
+                    html += '    <a class="btn btn-danger btn-sm" href="delete.php?delete_id=' + res['data']['id'] + '" onClick="return confirm(\'are you sure you want to delete?\');">Delete</a>';
                     html += '</td>';
+                    html += '<td><a class="btn btn-primary btn-sm edit-ajax" id="edit-' + res['data']['id'] + '">Edit Ajax</a></td>';
                     html += '</tr>';
                     $("#user-" + res['data']['id']).replaceWith(html);
                 }

@@ -15,7 +15,7 @@
 /*
  * Show result from ajax_get_data_user with param $id
  */
-include_once 'inc/inc.config.php';
+include_once '../inc/inc.config.php';
 /*
  * design the content to be in JSON format
  */
@@ -28,7 +28,7 @@ header('Access-Control-Allow-Methods: GET, POST');
 
 if (isset($_POST['user_id'])) {
     $id = $_POST['user_id'];
-    $data = $crudajax->ajax_get_data_user($id);
+    $data = $crudajax->ajax_get_data($id);
     if ($data) {
         echo json_encode($data);//show JSON Format
         exit();

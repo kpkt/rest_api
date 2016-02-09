@@ -41,4 +41,4 @@ $crud = new Crud($dbCon);
 
 include_once 'inc.class.ajax.php';
 
-$crudajax = new Crudajax($DB_con);
+$crudajax = new Crudajax($dbCon);

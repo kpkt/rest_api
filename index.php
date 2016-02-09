@@ -62,7 +62,7 @@ include_once 'inc/inc.header.php';
                         <a class="btn btn-warning btn-sm" href="view.php?view_id=<?php print($user['id']); ?>">View</a>                        
                         <a class="btn btn-danger btn-sm" href="delete.php?delete_id=<?php print($user['id']); ?>" onClick="return confirm('are you sure you want to delete?');">Delete</a>                        
                     </td>
-                    <td><a class="btn btn-primary btn-sm edit-ajax" id="edit-<?php print($user['id']); ?>">Edit Ajax</a></td>
+                    <td><a class="btn btn-primary btn-sm edit-ajax"">Edit Ajax</a></td>
                 </tr>
             <?php endforeach; ?>
 

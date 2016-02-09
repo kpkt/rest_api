@@ -1,10 +1,9 @@
 <?php
 
 /*
- * @tutorial Sesi "Transfer of technology"
- * Penggunaan AppGen - API Manager dan 
- * pembangunan API Service dengan mengggunakan
- * PHP dan MySQL
+ * PHP PDO CRUD Tutorial 
+ * In this tutorial we will see that how to create database 
+ * CRUD operations using Object Oriented concept in PDO
  * @author 	: Mohamad Zaki Mustafa
  * @contact 	: mzm@kpkt.gov.my
  * @date	: 17hb Februari 2015
@@ -16,7 +15,7 @@
 /*
  * Show result from ajax_create
  */
-include_once 'inc/inc.config.php';
+include_once '../inc/inc.config.php';
 /*
  * design the content to be in JSON format
  */
