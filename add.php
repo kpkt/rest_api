@@ -46,9 +46,7 @@ include_once 'inc/inc.header.php';
         echo '<div class="alert alert-info">The user has been saved. <a href="index.php"><strong>HOME</strong></a>!</div>';
     } else if (isset($_GET['failure']) && $_GET['failure'] = "failure") {
         echo '<div class="alert alert-warning">The user could not be saved. Please, try again.  <a href="index.php"><strong>HOME</strong></a>!</div>';
-    } else {
-        echo '<div class="alert alert-danger">Invalid Input. Please, try again.  <a href="index.php"><strong>HOME</strong></a>!</div>';
-    }
+    } 
     ?>
     <h3 class="text-center"><?php echo 'New Record' ?></h3>
     <form method='post' class="form-horizontal">

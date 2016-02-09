@@ -53,8 +53,8 @@ include_once 'inc/inc.header.php';
             <tr>
                 <th>Action</th>
                 <td>
-                    <a class="btn btn-info btn-sm" href="edit.php?edit_id=<?php print($user['id']); ?>">Edit</a>                               
-                    <a class="btn btn-danger btn-sm" href="delete.php?delete_id=<?php print($user['id']); ?>" onClick="return confirm('are you sure you want to delete?');">Delete</a>                        
+                    <a class="btn btn-info btn-sm" href="edit.php?edit_id=<?php print($id); ?>">Edit</a>                               
+                    <a class="btn btn-danger btn-sm" href="delete.php?delete_id=<?php print($id); ?>" onClick="return confirm('are you sure you want to delete?');">Delete</a>                        
                 </td>
             </tr>
         </table>

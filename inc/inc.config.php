@@ -38,7 +38,3 @@ try {
 include_once 'inc.class.crud.php';
 
 $crud = new Crud($dbCon);
-
-include_once 'inc.class.ajax.php';
-
-$crudajax = new Crudajax($DB_con);
