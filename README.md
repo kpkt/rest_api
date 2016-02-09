@@ -73,6 +73,7 @@ ajax/
    --ajax_get.php
 inc/
    --inc.dbconfig.php
+   --inc.class.ajax.php 
    --inc.class.crud.php  
    --inc.footer.php
    --inc.header.php
@@ -117,6 +118,21 @@ function read($id)
 function update($id, $param1, $param2, $param3, $paramN)
 
 function delete($id)
+
+```
+# CRUD AJAC Class
+
+Fail inc.class.ajax.php menempatkan bagi fungsi asas CRUD dan fungsi memanggil semua data dan data terpilih yang di gunakan oleh AJAX
+
+```php
+
+function ajax_get_all_data($query)
+
+function ajax_get_data($id)
+
+function ajax_create($param1, $param2, $param3, $paramN)
+
+function ajax_update($id, $param1, $param2, $param3, $paramN)
 
 ```
 
