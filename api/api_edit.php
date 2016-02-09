@@ -14,7 +14,22 @@
  * Show result from api_update
  */
 include_once 'inc/inc.config.php';
+/*
+ * design the content to be in JSON format
+ */
 header("content-type:application/json");
+/*
+ * Access-Control-Allow-Origin for allow request from diffrent domain
+ * Exp:
+ *      "Access-Control-Allow-Origin: *"
+ *      "Access-Control-Allow-Origin: http://www.example.org/"
+ */
+header("Access-Control-Allow-Origin: *");
+
+/*
+ * Access-Control-Allow-Methods for allow request method such as GET, POST, OPTIONS
+ */
+header('Access-Control-Allow-Methods: GET, POST');
 /**
  * Get POST Value from AJAX Post
  */
