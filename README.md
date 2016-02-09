@@ -1,4 +1,5 @@
-# Basic PHP
+# REST API
+Mobile aplikasi dan API (Application Programming Interface)
 
 Dalam tutorial ini, kita akan lihat bagaimana mewujudkan operasi 
 Pangkalan Data CRUD (CREATE, READ, UPDATE, DELETE) MySQL dengan menggunakan konsep Berorientasikan Objek (_OO - Object Oriented_) PHP dan PDO.
@@ -12,7 +13,11 @@ Wujudkan _database_ dan _table_ seperti dibawah
 
 ```php
 --
--- Database: `db_php_sample`
+-- Database: `db_api`
+--
+
+--
+CREATE DATABASE IF NOT EXISTS db_api;
 --
 
 -- --------------------------------------------------------
@@ -32,7 +37,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 -- 
 -- Dumping data for table `users`
--- 
+--
+
 
 INSERT INTO `users` VALUES (1, 'Nur Azyani bin Abdul Manaf','azyani@gmail.com','0113456789');
 INSERT INTO `users` VALUES (2, 'Nurul Annisa Anuar','annisa@gmail.com','0123456789');
@@ -46,7 +52,6 @@ INSERT INTO `users` VALUES (4, 'Mohd Salleh Daim','salled.daim@gmail.com','01434
 Direktori fail projek seperti dibawah 
 
 ```php
-
 bootstrap/
    --css/
       --bootstrap.min.css
@@ -113,4 +118,4 @@ function delete($id)
 
 Download the script by clicking following link and try it in your projects.
 
-[Download](https://github.com/mzm-dev/php_pdo/archive/master.zip).
+[Download](https://github.com/kpkt/rest_api/archive/master.zip).
