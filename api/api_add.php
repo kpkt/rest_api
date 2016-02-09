@@ -13,7 +13,7 @@
 /*
  * Show result from ajax_create
  */
-include_once 'inc/inc.config.php';
+include_once '../inc/inc.config.php';
 /*
  * design the content to be in JSON format
  */

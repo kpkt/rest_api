@@ -35,10 +35,6 @@ try {
     echo $e->getMessage();
 }
 
-include_once 'inc.class.crud.php';
-
-$crud = new Crud($dbCon);
-
 include_once 'inc.class.api.php';
 
 $restApi = new Rest($dbCon);

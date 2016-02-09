@@ -13,7 +13,7 @@
 /*
  * Show result from api_get_data with param $id
  */
-include_once 'inc/inc.config.php';
+include_once '../inc/inc.config.php';
 /*
  * design the content to be in JSON format
  */
