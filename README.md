@@ -124,4 +124,4 @@ function delete($id)
 
 Download the script by clicking following link and try it in your projects.
 
-[Download](https://github.com/kpkt/rest_api/archive/master.zip).
+[Download](https://github.com/kpkt/rest_api/archive/ajax.zip).
