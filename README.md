@@ -63,14 +63,20 @@ bootstrap/
        --glyphicons-halflings-regular.ttf
        --glyphicons-halflings-regular.woff
 js/
+   --function.js
    --jquery.min.js
 css/
    --style.css
+ajax/
+   --ajax_add.php
+   --ajax_edit.php
+   --ajax_get.php
 inc/
    --inc.dbconfig.php
    --inc.class.crud.php  
    --inc.footer.php
    --inc.header.php
+
 index.php
 add.php
 edit.php

@@ -12,7 +12,7 @@
 
 /*
  * CRUD file
- * @name User
+ * @name CRUD
  * @description This is the main class file which contains code for database operations.
  *              so that we won't have to write the same header codes every-time. 
  *              This file contains bootstrap file links. 

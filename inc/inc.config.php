@@ -23,7 +23,7 @@
 $dbHost = "localhost";
 $dbUser = "root";
 $dbPass = "password";
-$dbName = "db_php_sample";
+$dbName = "db_api";
 
 
 try {
