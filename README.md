@@ -71,6 +71,8 @@ ajax/
    --ajax_add.php
    --ajax_edit.php
    --ajax_get.php
+   --modal_add.php
+   --modal_eit.php
 inc/
    --inc.dbconfig.php
    --inc.class.ajax.php 

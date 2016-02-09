@@ -14,8 +14,8 @@
  * Define URL
  * @type String
  */
-var url = 'http://localhost/php_pdo_api/api/';
-//var url = 'http://localhost/php_pdo_ajax/ajax/';
+//var url = 'http://localhost/php_pdo_api/api/';
+var url = 'http://localhost/php_pdo_ajax/ajax/';
 
 /**
  * Append Modal to body
@@ -97,7 +97,7 @@ function data_save() {
                     html += '    <a class="btn btn-warning btn-sm" href="view.php?view_id=' + res['data']['id'] + '">View</a>';
                     html += '    <a class="btn btn-danger btn-sm" href="delete.php?delete_id=' + res['data']['id'] + '" onClick="return confirm(\'are you sure you want to delete?\');">Delete</a>';
                     html += '</td>';
-                    html += '<td><a class="btn btn-primary btn-sm edit-ajax" id="edit-' + res['data']['id'] + '">Edit Ajax</a></td>';
+                    html += '<td><a class="btn btn-primary btn-sm edit-ajax">Edit Ajax</a></td>';
                     html += '</tr>';
                     $('#index_users tbody').append(html);
                 }
@@ -110,8 +110,8 @@ function data_get(id) {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: url + "api_get.php",
-//        url: url + "ajax_get.php",
+//        url: url + "api_get.php",
+        url: url + "ajax_get.php",
         data: {"user_id": id},
         success: function (res) {
             if (res['status'] == 'berjaya') {
@@ -137,8 +137,8 @@ function data_update() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: url + "api_edit.php",
-//            url: url + "ajax_edit.php",
+//            url: url + "api_edit.php",
+            url: url + "ajax_edit.php",
             data: data,
             success: function (res) {
                 if (res['status'] == 'berjaya') {
@@ -153,7 +153,7 @@ function data_update() {
                     html += '    <a class="btn btn-warning btn-sm" href="view.php?view_id=' + res['data']['id'] + '">View</a>';
                     html += '    <a class="btn btn-danger btn-sm" href="delete.php?delete_id=' + res['data']['id'] + '" onClick="return confirm(\'are you sure you want to delete?\');">Delete</a>';
                     html += '</td>';
-                    html += '<td><a class="btn btn-primary btn-sm edit-ajax" id="edit-' + res['data']['id'] + '">Edit Ajax</a></td>';
+                    html += '<td><a class="btn btn-primary btn-sm edit-ajax">Edit Ajax</a></td>';
                     html += '</tr>';
                     $("#user-" + res['data']['id']).replaceWith(html);
                 }
