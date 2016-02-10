@@ -81,8 +81,8 @@ function data_save() {
         $.ajax({
             type: "POST",
             dataType: "json",
-            url: url + "api_add.php",
-//            url: url + "ajax_add.php",
+            url: url + "ajax_add.php",
+//            url: url + "api_add.php",
             data: data,
             success: function (res) {
                 if (res['status'] == 'berjaya') {
@@ -110,8 +110,8 @@ function data_get(id) {
     $.ajax({
         type: "POST",
         dataType: "json",
-//        url: url + "api_get.php",
         url: url + "ajax_get.php",
+//        url: url + "api_get.php",
         data: {"user_id": id},
         success: function (res) {
             if (res['status'] == 'berjaya') {
@@ -137,8 +137,8 @@ function data_update() {
         $.ajax({
             type: "POST",
             dataType: "json",
-//            url: url + "api_edit.php",
             url: url + "ajax_edit.php",
+//            url: url + "api_edit.php",
             data: data,
             success: function (res) {
                 if (res['status'] == 'berjaya') {
