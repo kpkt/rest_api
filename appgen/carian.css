@@ -42,3 +42,23 @@ input[type=button]:hover, input[type=button]:focus {
 div.displayForm, div.displayResult {    
     padding:5px
 }
+.keputusan a {
+    background: #ddd none repeat scroll 0 0;
+    border-radius: 0.3em;
+    color: #444;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0.2em 0.2em 0.2em 0.5em;
+    text-decoration: none;
+}
+
+ul.keputusan{
+    margin-left: 0;
+}
+
+.keputusan li{
+   list-style:none;
+   margin-bottom: 0.2em;
+   margin-top: 0.3em;
+}
