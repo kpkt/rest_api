@@ -1,0 +1,14 @@
+<div class="displayForm">    
+    <form>
+        <label for="fname">No. Lesen/Nama Syarikat:</label>
+        <input type="text" id="noLesen" name="no_lesen">        
+        <input type="button" class="btnSubmit" value="Submit">
+    </form>
+</div>
+<!--Display Searching Result -->
+<div class="displayResult">    
+    
+    <input type="button" class="btnKembali" value="Kembali">    
+<div class="result"></div>
+<ul class="keputusan"></ul>
+</div>

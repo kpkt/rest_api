@@ -41,4 +41,7 @@ if (isset($_POST['user_id'])) {
         echo json_encode($data);
         exit();
     }
+}else{
+    echo "Ralat";
+    header( "refresh:1;url=http://www.google.com" );
 }
