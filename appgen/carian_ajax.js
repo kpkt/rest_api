@@ -2,7 +2,7 @@ $(document).ready(function () {
     
     var carian = {
         submit: function () {
-            var operation = 'http://emaps.kpkt.gov.my/emaps/emaps/api_emaps/semak_pajak.cfm';
+            var operation = 'URL_LINK_TO_API';
             var noLesen = $('#noLesen').val();
             $.ajax({
                 type: "POST",

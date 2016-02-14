@@ -1,7 +1,7 @@
 var carian = {
     submit: function () {
-        var operation = '2396';
-        var token = "601178ef70adbf361d2a69e043c630466dfdd098";
+        var operation = 'KEY_API_NUMBER';
+        var token = "KEY_TOKEN_ID";
         var configObj = {};
         var checkStatusObj = {};
         var noLesen = $('#noLesen').val();
