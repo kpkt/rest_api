@@ -59,6 +59,7 @@ api/
    --api_add.php
    --api_edit.php
    --api_get.php
+   --api_index.php
 
 ```
 
