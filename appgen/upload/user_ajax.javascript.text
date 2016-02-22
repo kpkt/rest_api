@@ -1,0 +1,27 @@
+    var users = {
+        list: function () {
+            var operation = '<URL_API>';            
+            $.ajax({
+                type: "POST",                               
+                dataType: "json",
+                url: operation,
+                
+                success: function (result) {
+                    if (result.status == 'berjaya') { //res.output                        
+                        $.each(result.data, function (key, v) {                            
+var newBlock = '<li class="contentData">' + v.name + '</li>';
+                            $('.keputusan').append(newBlock);
+                        });
+                    } else {
+                        alert('Maklumat carian tidak dijumpai.');
+                        
+                    }
+                }
+            });
+
+        },
+             
+
+    };
+
+    users.list();

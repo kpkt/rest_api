@@ -80,6 +80,37 @@ class Rest {
             return false;
         }
     }
+    
+    /**
+     * Get Selected Data by @param
+     * Function get the records from database table.
+     * @param type $param
+     * @return boolean|string
+     * @url http://php.net/manual/en/pdostatement.fetch.php
+     */
+    
+    public function api_search_data($param = null) {
+        if ($param) {
+            $stmt = $this->db->prepare("SELECT * FROM users WHERE name LIKE :name");            
+            $stmt->execute(array(":name" => "%$param%"));
+            /* if result execute not empty */
+            if ($stmt->rowCount() > 0) {
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $dataTrue = array(
+                    'status' => 'berjaya',
+                    'keputusan' => $result
+                );
+                return $dataTrue;
+            } else {
+                $dataFalse = array(
+                    'status' => 'gagal'
+                );
+                return $dataFalse;
+            }
+        } else {
+            return false;
+        }
+    }
 
     /**
      * Save Function

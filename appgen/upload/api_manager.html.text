@@ -1,0 +1,16 @@
+<div class="displayForm">    
+    <form>
+
+        <label>Name</label>            
+        <input type="text" id="fname" name="fname">             
+
+        <label>Email</label>
+        <input type="text" id="femail" name="femail">
+
+        <label>Phone</label>
+        <input type="text" id="fphone" name="fphone">
+
+        <input type="button" id="btnSubmit" value="Submit">
+
+    </form>
+</div>

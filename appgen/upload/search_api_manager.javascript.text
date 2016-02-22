@@ -1,0 +1,53 @@
+var users = {
+    search: function () {
+        var API_KEY = "<APP_KEY>";
+        var API_UNILIST = "<API_ID>";
+        var configObj = {};
+        var checkStatusObj = {};
+        var param = $('#fname').val();
+
+        checkStatusObj.param = param;
+
+        configObj = {
+            getParams: checkStatusObj
+        };
+
+        callApi(API_UNILIST, API_KEY, "get", configObj).then(function (result) {
+            $("ul.keputusan").empty();
+            if (result.data != null && !result.data.error) {
+                if (result.data.status == 'berjaya') { //res.output
+                    result.data.keputusan.forEach(function (v, i) {
+                        var newBlock = '<li class="contentData">' + v.name + '</li>';
+                        $('.keputusan').append(newBlock);
+                        $('.displayForm').hide();
+                        $('.displayResult').show();
+                    });
+                } else {
+                    alert('Maklumat carian tidak dijumpai.');
+                    $("input").val("");
+                    $('.displayForm').show();
+                    $('.displayResult').hide();
+                }
+            } else {
+                console.log(result);
+            }
+        });
+    },
+};
+$('.displayForm').show();
+$('.displayResult').hide();
+
+$('#btnSubmit').tap({
+    callback: function () {
+        users.search();
+    }
+});
+
+$('.btnKembali').tap({
+    callback: function () {
+        $('.displayForm').show();
+        $('.displayResult').hide();
+        $("input[type=text]").val('');
+        $("ul.keputusan").empty();
+    }
+});

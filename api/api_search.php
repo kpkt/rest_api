@@ -34,9 +34,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 /**
  * Get POST Value from AJAX Post
  */
-if (isset($_POST['user_id'])) {
-    $id = $_POST['user_id'];
-    $data = $restApi->api_get_data($id);
+if (isset($_GET['param'])) {
+    $param = $_GET['param'];
+    $data = $restApi->api_search_data($param);
     if ($data) {
         echo json_encode($data);
         exit();

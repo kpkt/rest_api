@@ -1,0 +1,35 @@
+var users = {
+    add: function () {
+        var operation = '<API_URL>';
+        var btn = $('#btnSubmit').val();
+        var fname = $('#fname').val();
+        var femail = $('#femail').val();
+        var fphone = $('#fphone').val();
+        $.ajax({
+            type: "POST",
+            data: {
+                'btn': btn,
+                'fname': fname,
+                'femail': femail,
+                'fphone': fphone
+            },                
+            dataType: "json",
+            url: operation,
+            success: function (result) {
+                if (result.status == 'berjaya') { //res.output
+                    alert('Maklumat berjaya disimpan.');
+                    $("input[type=text]").val('');
+                } else {
+                    alert('Maklumat gagal disimpan.');
+                }
+            }
+        });
+
+
+    }    
+};
+
+
+$('#btnSubmit').on('click, tap', function () {
+    users.add();
+});

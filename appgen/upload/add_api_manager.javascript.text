@@ -1,0 +1,35 @@
+var users = {
+    add: function () {
+        var API_KEY = "<APP_KEY>";
+        var API_UNILIST = "<API_ID>";
+        var configObj = {};
+        var checkStatusObj = {};
+        var btn = $('#btnSubmit').val();
+        var fname = $('#fname').val();
+        var femail = $('#femail').val();
+        var fphone = $('#fphone').val();
+        checkStatusObj.btn = btn;
+        checkStatusObj.fname = fname;
+        checkStatusObj.femail = femail;
+        checkStatusObj.fphone = fphone;
+
+        configObj = {
+            bodyParams: checkStatusObj
+        };
+        callApi(API_UNILIST, API_KEY, "post", configObj)
+                .then(function (result) {
+                    if (result.data != null && !result.data.error) {
+                        if (result.data.status == 'berjaya') { //res.output
+                            alert('Maklumat berjaya disimpan.');
+                            $("input[type=text]").val('');
+                        }
+                    }
+                });
+    }
+};
+
+
+
+$('#btnSubmit').on('click, tap', function () {
+    users.add();
+});

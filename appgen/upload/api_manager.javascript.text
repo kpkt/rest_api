@@ -1,0 +1,17 @@
+var users = {
+    list: function () {
+        var API_KEY = "<APP_KEY>";
+        var API_UNILIST = "<API_ID>";
+        callApi(API_UNILIST, API_KEY, "get")
+                .then(function (result) {
+                    console.log(result);
+                    result.data.data.forEach(function (v) {
+                        var newBlock = '<li class="contentData">' + v.name + '</li>';
+                        $('.keputusan').append(newBlock);
+                    });
+                });
+
+    }
+};
+
+users.list();
