@@ -29,6 +29,7 @@ include_once 'inc/inc.header.php';
 
 <?php
 if (isset($_POST['btn-day'])) {
+        //Panggil Class crud dgn function select_all
         $crud->select_all();
     }    
 ?>
