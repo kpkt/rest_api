@@ -27,7 +27,16 @@ include_once 'inc/inc.config.php';
 include_once 'inc/inc.header.php';
 ?>
 
-<div class="row mzm">    
+<?php
+if (isset($_POST['btn-day'])) {
+        $crud->select_all();
+    }    
+?>
+
+<div class="row mzm">   
+ <form action="<?= $_SERVER['PHP_SELF']?>" method="post">
+    <button type="submit" class="btn btn-success" name="btn-day">UPDATE DAY</button>
+</form> 
     <div class="btn-group pull-right" role="group" aria-label="...">
         <a class="btn btn-info" href="add.php">Add Data</a>
     </div>
@@ -38,6 +47,8 @@ include_once 'inc/inc.header.php';
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email ID</th>
+                <th>Created</th>
+                <th>Day From Now</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -55,6 +66,8 @@ include_once 'inc/inc.header.php';
                     <td><?php echo $user['name']; ?></td>                
                     <td><?php echo $user['phone']; ?></td>
                     <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['created']; ?></td>
+                    <td class="text-center"><?php echo $user['day']; ?></td>
                     <td>
                         <a class="btn btn-info btn-sm" href="edit.php?edit_id=<?php print($user['id']); ?>">Edit</a>                        
                         <a class="btn btn-warning btn-sm" href="view.php?view_id=<?php print($user['id']); ?>">View</a>                        

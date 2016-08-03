@@ -140,4 +140,52 @@ class Crud {
         }
     }
 
+
+    /**
+    * Looping data untuk guna satu persatu
+    * setiap satu update update_by_day
+    */
+    public function select_all(){
+        //Call function get_all_data
+        $query = "SELECT * FROM users";
+        $results = $this->get_all_data($query);
+        foreach ($results as $data) {
+         //Call function update_by_day
+            $this->update_by_day($data['id'], $data['created']);
+        }
+    }
+
+
+    /**
+    * Update every data based on select_all looping
+    */
+    public function update_by_day($id, $created){            
+        try {
+            //Call function datetime_diff
+            $dayInt = $this->datetime_diff($created);
+            //var_dump($dayInt);
+            $stmt = $this->db->prepare("UPDATE users SET day=:day WHERE id=:id");
+            $stmt->bindparam(":day", $dayInt); 
+            $stmt->bindparam(":id", $id);
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
+
+    /**
+    * Convert date and define diff date
+    * http://php.net/manual/en/function.date-diff.php
+    */
+    private function datetime_diff($created){
+        $dateCreated= date_create(date("Y-m-d", strtotime($created)));
+        $dateNow=date_create(date("Y-m-d"));
+        $diff =  date_diff($dateCreated,$dateNow);                 
+        return $diff->format("%d");
+    }
+
 }
