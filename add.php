@@ -58,13 +58,13 @@ include_once 'inc/inc.header.php';
                     <div class="form-group form-group-lg">
                         <label for="inputFName" class="col-sm-2 control-label">First Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="lname" placeholder="First Name" required>
+                            <input type="text" class="form-control" name="fname" placeholder="First Name" required>
                         </div>
                     </div>
                     <div class="form-group form-group-lg">
                         <label for="inputLName" class="col-sm-2 control-label">Last Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="fname" placeholder="Last Name" required>
+                            <input type="text" class="form-control" name="lname" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="form-group form-group-lg">

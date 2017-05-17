@@ -38,6 +38,7 @@ include_once 'inc/inc.header.php';
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email ID</th>
+                <th>Address</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -55,6 +56,7 @@ include_once 'inc/inc.header.php';
 <td><?php echo $user['fname']." ".$user['lname']; ?></td> 
                     <td><?php echo $user['phone']; ?></td>
                     <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['address']; ?></td>
                     <td>
                         <a class="btn btn-info btn-sm" href="edit.php?edit_id=<?php print($user['id']); ?>">Edit</a>                        
                         <a class="btn btn-warning btn-sm" href="view.php?view_id=<?php print($user['id']); ?>">View</a>                        
