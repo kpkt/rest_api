@@ -22,8 +22,8 @@
  */
 $dbHost = "localhost";
 $dbUser = "root";
-$dbPass = "password";
-$dbName = "db_api";
+$dbPass = "";
+$dbName = "db_staffs";
 
 
 try {
@@ -36,5 +36,7 @@ try {
 }
 
 include_once 'inc.class.crud.php';
+include_once 'inc.class.api.php';
 
 $crud = new Crud($dbCon);
+$restApi = new Rest($dbCon);

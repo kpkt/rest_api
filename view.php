@@ -40,7 +40,7 @@ include_once 'inc/inc.header.php';
         <table class='table table-bordered'>
             <tr>
                 <th>Name</th>
-                <td><?php echo $name; ?></td>
+                <td><?php echo $fname." ".$lname; ?></td>
             </tr>
             <tr>
                 <th>Email</th>
@@ -49,6 +49,14 @@ include_once 'inc/inc.header.php';
             <tr>
                 <th>Phone</th>
                 <td><?php echo $phone; ?></td>
+            </tr>
+            <tr>
+                <th>Address</th>
+                <td><?php echo $address; ?></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td><?php echo $gender; ?></td>
             </tr>
             <tr>
                 <th>Action</th>

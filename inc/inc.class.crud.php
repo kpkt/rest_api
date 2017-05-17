@@ -58,12 +58,15 @@ class Crud {
      * @ref http://php.net/manual/en/pdostatement.execute.php
      * @ref http://php.net/manual/en/pdostatement.bindparam.php
      */
-    public function create($fname, $femail, $fphone) {
+    public function create($fname, $lname, $email, $address, $phone, $gender) {
         try {
-            $stmt = $this->db->prepare("INSERT INTO users(name,email,phone) VALUES(:name, :email, :phone)");
-            $stmt->bindparam(":name", $fname);
-            $stmt->bindparam(":email", $femail);
-            $stmt->bindparam(":phone", $fphone);
+            $stmt = $this->db->prepare("INSERT INTO staffs(fname,lname,email,phone,address,gender) VALUES(:fname,:lname, :email, :phone,:address,:gender)");
+            $stmt->bindparam(":fname", $fname);
+            $stmt->bindparam(":lname", $lname);
+            $stmt->bindparam(":email", $email);
+            $stmt->bindparam(":phone", $phone);
+            $stmt->bindparam(":address", $address);
+            $stmt->bindparam(":gender", $gender);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -81,7 +84,7 @@ class Crud {
      */
     public function read($id = null) {
         if ($id) {
-            $stmt = $this->db->prepare("SELECT * FROM users WHERE id=:id");
+            $stmt = $this->db->prepare("SELECT * FROM staffs WHERE id=:id");
             $stmt->execute(array(":id" => $id));
             /* if result execute not empty */
             if ($stmt->rowCount() > 0) {
@@ -106,16 +109,22 @@ class Crud {
      * @ref http://php.net/manual/en/pdostatement.execute.php
      * @ref http://php.net/manual/en/pdostatement.bindparam.php
      */
-    public function update($id, $fname, $femail, $fphone) {
+    public function update($id, $fname, $lname, $email, $address, $phone, $gender) {
         try {
-            $stmt = $this->db->prepare("UPDATE users SET 
-                name=:name, 
+            $stmt = $this->db->prepare("UPDATE staffs SET 
+                fname=:fname, 
+                lname=:lname, 
                 email=:email, 
-                phone=:phone
+                phone=:phone,
+                address=:address,
+                gender=:gender
              WHERE id=:id");
-            $stmt->bindparam(":name", $fname);
-            $stmt->bindparam(":email", $femail);
-            $stmt->bindparam(":phone", $fphone);
+            $stmt->bindparam(":fname", $fname);
+            $stmt->bindparam(":lname", $lname);
+            $stmt->bindparam(":email", $email);
+            $stmt->bindparam(":phone", $phone);
+            $stmt->bindparam(":address", $address);
+            $stmt->bindparam(":gender", $gender);
             $stmt->bindparam(":id", $id);
             $stmt->execute();
 
@@ -133,7 +142,7 @@ class Crud {
      */
     public function delete($id) {
         if ($id) {
-            $stmt = $this->db->prepare("DELETE FROM users WHERE id=:id");
+            $stmt = $this->db->prepare("DELETE FROM staffs WHERE id=:id");
             $stmt->bindparam(":id", $id);
             $stmt->execute();
             return true;

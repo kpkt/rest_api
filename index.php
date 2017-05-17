@@ -38,23 +38,25 @@ include_once 'inc/inc.header.php';
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email ID</th>
+                <th>Address</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <?php
             #Query Statement Select All from users
-            $query = "SELECT * FROM users";
+            $query = "SELECT * FROM staffs";
 
             $users = $crud->get_all_data($query);
             ?>
-            <?php //print_r($results) ?>
+            <?php //var_dump($users) ?>
             <?php foreach ($users as $user): ?>
                 <tr id="user-<?php echo $user['id']; ?>">
                     <td><?php echo $user['id']; ?></td>
-                    <td><?php echo $user['name']; ?></td>                
+<td><?php echo $user['fname']." ".$user['lname']; ?></td> 
                     <td><?php echo $user['phone']; ?></td>
                     <td><?php echo $user['email']; ?></td>
+                    <td><?php echo $user['address']; ?></td>
                     <td>
                         <a class="btn btn-info btn-sm" href="edit.php?edit_id=<?php print($user['id']); ?>">Edit</a>                        
                         <a class="btn btn-warning btn-sm" href="view.php?view_id=<?php print($user['id']); ?>">View</a>                        
