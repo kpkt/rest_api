@@ -58,12 +58,15 @@ class Crud {
      * @ref http://php.net/manual/en/pdostatement.execute.php
      * @ref http://php.net/manual/en/pdostatement.bindparam.php
      */
-    public function create($fname, $femail, $fphone) {
+    public function create($fname, $lname, $email, $address, $phone, $gender) {
         try {
-            $stmt = $this->db->prepare("INSERT INTO users(name,email,phone) VALUES(:name, :email, :phone)");
-            $stmt->bindparam(":name", $fname);
-            $stmt->bindparam(":email", $femail);
-            $stmt->bindparam(":phone", $fphone);
+            $stmt = $this->db->prepare("INSERT INTO staffs(fname,lname,email,phone,address,gender) VALUES(:fname,:lname, :email, :phone,:address,:gender)");
+            $stmt->bindparam(":fname", $fname);
+            $stmt->bindparam(":lname", $lname);
+            $stmt->bindparam(":email", $email);
+            $stmt->bindparam(":phone", $phone);
+            $stmt->bindparam(":address", $address);
+            $stmt->bindparam(":gender", $gender);
             $stmt->execute();
             return true;
         } catch (PDOException $e) {

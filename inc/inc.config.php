@@ -22,8 +22,8 @@
  */
 $dbHost = "localhost";
 $dbUser = "root";
-$dbPass = "password";
-$dbName = "db_api";
+$dbPass = "";
+$dbName = "db_staffs";
 
 
 try {
