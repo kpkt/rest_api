@@ -36,5 +36,7 @@ try {
 }
 
 include_once 'inc.class.crud.php';
+include_once 'inc.class.api.php';
 
 $crud = new Crud($dbCon);
+$restApi = new Rest($dbCon);
