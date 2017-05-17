@@ -33,10 +33,13 @@ include_once 'inc/inc.header.php';
     if (isset($_POST['btn-update'])) {
         $id = $_GET['edit_id'];
         $fname = $_POST['fname'];
-        $femail = $_POST['femail'];
-        $fphone = $_POST['fphone'];
+        $lname = $_POST['lname'];
+        $email = $_POST['email'];
+        $address = $_POST['address'];
+        $phone = $_POST['phone'];
+        $gender = $_POST['gender'];
 
-        if ($crud->update($id, $fname, $femail, $fphone)) {
+        if ($crud->update($id, $fname, $lname, $email, $address, $phone, $gender)) {
             echo '<div class="alert alert-info">The user has been updated. <a href="index.php"><strong>HOME</strong></a>!</div>';
         } else {
             echo '<div class="alert alert-warning">The user could not be saved. Please, try again. <a href="index.php"><strong>HOME</strong></a>!</div>';
@@ -51,24 +54,48 @@ include_once 'inc/inc.header.php';
     ?>
     <h3 class="text-center"><?php echo 'Update Record' ?></h3>
     <form method='post' class="form-horizontal">
+        
+        
         <div class="form-group form-group-lg">
-            <label for="inputName" class="col-sm-2 control-label">Name</label>
+            <label for="inputFName" class="col-sm-2 control-label">First Name</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" name="fname" value="<?php echo $name; ?>" required> 
+                <input type="text" class="form-control" name="fname" placeholder="First Name" value="<?php echo $fname; ?>"> 
+            </div>
+        </div>  
+        <div class="form-group form-group-lg">
+            <label for="inputLName" class="col-sm-2 control-label">Last Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="lname" placeholder="Last Name" value="<?php echo $lname; ?>"> 
             </div>
         </div>    
         <div class="form-group form-group-lg">
             <label for="inputEmail" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control"  name="femail" value="<?php echo $email; ?>" required>
+                <input type="email" class="form-control"  name="email" placeholder="Email" value="<?php echo $email; ?>">
             </div>
         </div>
         <div class="form-group form-group-lg">
             <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
             <div class="col-sm-8">
-                <input type="tel" class="form-control" name="fphone" value="<?php echo $phone; ?>" required>
+                <input type="text" class="form-control" name="phone" placeholder="Phone Number" value="<?php echo $phone; ?>">
             </div>
-        </div>    
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="inputAddress" class="col-sm-2 control-label">Address</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="address" placeholder="Address" cols="5"  value="<?php echo $address; ?>">
+            </div>
+        </div>
+        <div class="form-group form-group-lg">
+            <label for="inputGender" class="col-sm-2 control-label">Gender</label>
+            <div class="col-sm-8">
+                <select class="form-control" name="gender" required>
+                <option value="Lelaki" <?php echo ($gender == 'Lelaki'?'selected="selected"':'') ?>>Lelaki</option>
+                <option value="Perempuan" <?php echo ($gender == 'Perempuan'?'selected="selected"':'') ?>>Perempuan</option>             
+                </select>                
+            </div>
+        </div>
+        
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-success btn-lg"  name="btn-update">
