@@ -36,7 +36,7 @@ header('Access-Control-Allow-Methods: GET, POST');
  * Get POST Value from AJAX Post
  */
 //if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-    $data = $restApi->api_get_all_data("SELECT * FROM users");
+    $data = $restApi->api_get_all_data("SELECT * FROM staffs");
     if ($data) {
         echo json_encode($data); //show JSON Format
         exit();

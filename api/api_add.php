@@ -17,31 +17,38 @@ include_once '../inc/inc.config.php';
 /*
  * design the content to be in JSON format
  */
-header("content-type:application/json");
+//header("content-type:application/json");
+
 /*
  * Access-Control-Allow-Origin for allow request from diffrent domain
  * Exp:
  *      "Access-Control-Allow-Origin: *"
  *      "Access-Control-Allow-Origin: http://www.example.org/"
  */
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 
 /*
  * Access-Control-Allow-Methods for allow request method such as GET, POST, OPTIONS
  */
-header('Access-Control-Allow-Methods: GET, POST');
+//header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 
+/*
+* file_get_contents - Read entire file into a string
+*
+*/
 
+$request = json_decode(file_get_contents('php://input'),true);
+var_dump($request);
 /**
  * Get POST Value from AJAX Post
  */
-if (isset($_POST['btn'])) {
-    $fname = $_POST['fname'];
-        $lname = $_POST['lname'];
-        $email = $_POST['email'];
-        $address = $_POST['address'];
-        $phone = $_POST['phone'];
-        $gender = $_POST['gender'];
+if (isset($posts)) {
+        $fname = $request->fname;
+        $lname = $request->lname;
+        $email = $request->email;
+        $address = $request->address;
+        $phone = $request->phone;
+        $gender = $request->gender;
     $data = $restApi->api_create($fname, $lname, $email, $address, $phone, $gender);
     if ($data) {
         echo json_encode($data); //show JSON Format
